@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AspNetSSMSConnection.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee List</h2>
+
+<p>
+    @Html.ActionLink("Add new employee", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeFullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeBirthDate)
+        </th>
+        <th>
+
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmployeeFullName)
+    </td>
+    <td>
+        $ @Html.DisplayFor(modelItem => item.EmployeeSalary)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmployeeBirthDate)
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+    </td>
+</tr>
+}
+
+</table>
